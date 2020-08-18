@@ -2,19 +2,122 @@
 
 <html>
         <style>
+                :root {
+                        --main-bg-color: #192A51;
+                        --pannel-color: #967AA1;
+                        --hover-pannel-color: #AAA1C8;
+                        --text-color: #F5E6E8;
+                }
+                .fullpage {
+                        background-color: var(--main-bg-color);
+                }
+                .header {
+                        font-family: Arial;
+                        font-size: 50px;
+                        color: var(--text-color);
+                        padding-right: 3%;
+                        padding-left: 3%;
+                }
+
+                .header_text {
+                        font-family: Arial;
+                        font-size: 20px;
+                        color: var(--text-color);
+                        padding-right: 3%;
+                        padding-left: 3%;
+                }
                 .startbox {
-                        width: 384;
-                        border: 10px blue;
-                        padding: 10px;
-                        margin: 5px;
+                        width: 20%;
+                        max-width: 384px; 
+                        height: 10%;
+                        background-color: var(--pannel-color);
+                        padding: 7%;
+                        margin: 1%;
+                        text-align: center;
+                        font-family: Arial;
+                        font-size: 25px;
+                        color: var(--text-color);
+                        
+                        display: inline-block;
+                        transition: 0.5s;
+                }
+                .startbox:hover {
+                        background-color: var(--hover-pannel-color);
+                }
+                .startbox_container {
+                        display: flex;
+                        flex: 1;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                }
+
+                a {
+                        color: var(--text-color);
+                        text-decoration: none;
                 }
         </style>
 
         <title>Startpage</title>
+        <body class='fullpage'>
+                <p class='header', id='timeofday'>
+                        
+                </p>
 
-        <div class='startbox'>
-                <h1>
-                        hey
-                </h1>
-        </div>
+                <p class='header_text', id='time'>
+                
+                </p>
+
+                <div class='startbox_container'>
+                        <div class='startbox'>
+                                <a href='https://sis.case.edu' target="_blank">
+                                        sis
+                                </a>
+                        </div>
+
+                        <div class='startbox'>
+                                <a href='https://canvas.case.edu' target="_blank">
+                                        canvas
+                                </a>
+                        </div>
+
+                        <div class='startbox'>
+                                <a href='https://firstyear.case.wisr.io' target="_blank">
+                                        wisr
+                                </a>
+                        </div>
+
+                        <div class='startbox'>
+                                <a href='https://cwru.joinhandshake.com' target="_blank">
+                                        handshake
+                                </a>
+                        </div>
+
+                        <div class='startbox'>
+                                <a href='https://scbcexecutiveboard.wixsite.com/scbc' target="_blank">
+                                        case by case
+                                </a>
+                        </div>
+                        <div class='startbox'>
+                                <a href='https://go.case.edu/apply/' target="_blank">
+                                        checklist
+                                </a>
+                        </div>
+                </div>
+        </body>
+        <script>
+                let date = new Date();
+                let raw_hours = date.getHours();
+
+                // current time
+                let hours = (raw_hours > 12) ? raw_hours - 12 : raw_hours;
+                let minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
+                let ampm = (raw_hours >= 12) ? 'pm' : 'am';
+                document.getElementById('time').innerHTML =  `it's currently ${hours}:${minutes} ${ampm}`;
+
+                // good evening/afternoon/morning
+                let timeofday = raw_hours >= 18 ? 'evening' : 'nack';
+                if(timeofday == 'nack')
+                        timeofday = (raw_hours >= 12 && raw_hours < 18) ? 'afternoon' : 'morning';
+                document.getElementById('timeofday').innerHTML = `good ${timeofday}.`
+        </script>
 </html>
