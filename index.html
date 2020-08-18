@@ -8,8 +8,20 @@
                         --hover-pannel-color: #AAA1C8;
                         --text-color: #F5E6E8;
                 }
-                .fullpage {
-                        background-color: var(--main-bg-color);
+                html {
+                        background-image: url('https://case.edu/parking/sites/case.edu.parking/files/styles/hero_one_column/public/2018-11/CWRU-aerial.jpg?h=630943b8&itok=B1bxirtF');
+                }
+                .overlay {
+                        margin: 0;
+                        z-index: 1;
+                        height: 100%;
+                        width: 100%;
+                        position: fixed;
+                        overflow: auto;
+                        top: 0px;
+                        left: 0px;
+                        background: rgba(25, 42, 81, 0.8); /*can be anything, of course*/
+                
                 }
                 .header {
                         font-family: Arial;
@@ -28,7 +40,7 @@
                 }
                 .startbox {
                         width: 20%;
-                        max-width: 384px; 
+                        max-width: 256px; 
                         height: 10%;
                         background-color: var(--pannel-color);
                         padding: 7%;
@@ -39,7 +51,8 @@
                         color: var(--text-color);
                         
                         display: inline-block;
-                        transition: 0.5s;
+                        transition: 0.3s;
+                        border-radius: 10px;
                 }
                 .startbox:hover {
                         background-color: var(--hover-pannel-color);
@@ -58,7 +71,7 @@
         </style>
 
         <title>Startpage</title>
-        <body class='fullpage'>
+        <body class='overlay'>
                 <p class='header', id='timeofday'>
                         
                 </p>
@@ -68,40 +81,29 @@
                 </p>
 
                 <div class='startbox_container'>
-                        <div class='startbox'>
-                                <a href='https://sis.case.edu' target="_blank">
+                                <a href='https://sis.case.edu' target="_blank" class='startbox'>
                                         sis
                                 </a>
-                        </div>
 
-                        <div class='startbox'>
-                                <a href='https://canvas.case.edu' target="_blank">
+                                <a href='https://canvas.case.edu' target="_blank" class='startbox'>
                                         canvas
                                 </a>
-                        </div>
 
-                        <div class='startbox'>
-                                <a href='https://firstyear.case.wisr.io' target="_blank">
+                                <a href='https://firstyear.case.wisr.io' target="_blank" class='startbox'>
                                         wisr
                                 </a>
-                        </div>
 
-                        <div class='startbox'>
-                                <a href='https://cwru.joinhandshake.com' target="_blank">
+                                <a href='https://cwru.joinhandshake.com' target="_blank" class='startbox'>
                                         handshake
                                 </a>
-                        </div>
 
-                        <div class='startbox'>
-                                <a href='https://scbcexecutiveboard.wixsite.com/scbc' target="_blank">
+                                <a href='https://scbcexecutiveboard.wixsite.com/scbc' target="_blank" class='startbox'>
                                         case by case
                                 </a>
-                        </div>
-                        <div class='startbox'>
-                                <a href='https://go.case.edu/apply/' target="_blank">
+
+                                <a href='https://go.case.edu/apply/' target="_blank" class='startbox'>
                                         checklist
                                 </a>
-                        </div>
                 </div>
         </body>
         <script>
