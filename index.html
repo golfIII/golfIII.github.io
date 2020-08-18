@@ -111,10 +111,18 @@
                 let raw_hours = date.getHours();
 
                 // current time
-                let hours = (raw_hours > 12) ? raw_hours - 12 : raw_hours;
-                let minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
-                let ampm = (raw_hours >= 12) ? 'pm' : 'am';
-                document.getElementById('time').innerHTML =  `it's currently ${hours}:${minutes} ${ampm}`;
+                function setTime()
+                {
+                        let ndate = new Date();
+                        raw_hours = ndate.getHours();
+                        let hours = (raw_hours > 12) ? raw_hours - 12 : raw_hours;
+                        let minutes = (ndate.getMinutes() < 10) ? '0' + ndate.getMinutes() : ndate.getMinutes();
+                        let ampm = (raw_hours >= 12) ? 'pm' : 'am';
+                        document.getElementById('time').innerHTML =  `it's currently ${hours}:${minutes} ${ampm}`;
+                        // console.log('bruh');
+                }
+                setTime();
+                setInterval(setTime, 1000);
 
                 // good evening/afternoon/morning
                 let timeofday = raw_hours >= 18 ? 'evening' : 'nack';
