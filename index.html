@@ -89,7 +89,7 @@
                 setInterval(setDate, 1000);
 
                 // weather stuff
-                fetch('http://api.openweathermap.org/data/2.5/weather?lat=36&lon=-115.17&appid=2528be2e5c053228dd0fd7a3285d22a3')
+                fetch('https://api.openweathermap.org/data/2.5/weather?lat=36&lon=-115.17&appid=2528be2e5c053228dd0fd7a3285d22a3')
                     .then(async response => {
                         let json = await response.json();
                         // The temperature is in KELVIN. We have to go to deg f.
