@@ -19,9 +19,9 @@
                 position: fixed;
                 top: 50%;
                 left: 50%;
-                margin-left: -30.5%;
-                margin-top: -15.5%;
-                width: 60%;
+                margin-left: -38.5%;
+                margin-top: -20.5%;
+                width: 76%;
                 border: 3px solid #fff;
                 padding: 1%;
                 background-color:#5792bf; 
@@ -89,7 +89,7 @@
                 setInterval(setDate, 1000);
 
                 // weather stuff
-                fetch('https://api.openweathermap.org/data/2.5/weather?lat=36&lon=-115.17&appid=2528be2e5c053228dd0fd7a3285d22a3')
+                fetch('http://api.openweathermap.org/data/2.5/weather?lat=36&lon=-115.17&appid=2528be2e5c053228dd0fd7a3285d22a3')
                     .then(async response => {
                         let json = await response.json();
                         // The temperature is in KELVIN. We have to go to deg f.
