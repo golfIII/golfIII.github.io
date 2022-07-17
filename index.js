@@ -3,7 +3,7 @@
 function initLinks()
 {
     const navLinks = [
-        { name: 'mail', url: 'https://webmail.case.edu' },
+        { name: 'mail', url: 'https://mail.google.com/mail/u/0/' },
         { name: 'canvas', url: 'https://canvas.case.edu' },
         { name: 'sis', url: 'https://sis.case.edu' },
         { name: 'libgen', url: 'https://libgen.is' },
