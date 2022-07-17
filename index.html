@@ -1,202 +1,73 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title>sp</title>
-        <meta charset="utf-8">
-        <style>
-            body {
-                background-color: #423335;
+        <title>Start</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
-            }
-            img {
-                width: 100%;
-                height: 100%;
-                border: 3px solid white;
-            }
-            .sp-container {
-                font-family: consolas;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                margin-left: -38.5%;
-                margin-top: -20.5%;
-                width: 76%;
-                border: 3px solid #fff;
-                padding: 1%;
-                background-color:#5792bf; 
 
-            }
-
-            .sp-sidebar-img {
-                width: 30%;
-                float: left;
-                color: white;
-
-            }
-            .sp-main {
-                width: 64%;
-                float: left;
-                color: white;
-                height: 100%;
-                padding: 3%;
-   
-            }
-            .sp-search {
-                background-color: #73a6d0;
-                border: 3px solid white;
-                padding: 3%;
-                height: 50%;
-            }
-            .sp-links {
-                background-color: #73a6d0;
-                border: 3px solid white;
-                padding: 3%;
-                height: 50%;
-            }
-            .sp-todo {
-                background-color: #73a6d0;
-                border: 3px solid white;
-                padding: 3%;
-                height: 50%;
-            }
-            input {
-                background: transparent;
-                border: none;
-                font-family: consolas;
-            }
-            p {
-                padding: 0;
-            }
-            a {
-                color: white;
-            }
-            .cross {
-                transition-duration: 1s;   
-                transition-property: all;
-            }
-            .cross:hover {
-                text-decoration: line-through;
-                   
-            }
-        </style>
-
-        <script>
-            window.onload = function () {
-                // Init the date/time. Also, use setInterval to
-                // allow it to update.
-                setDate();
-                setInterval(setDate, 1000);
-
-                // weather stuff
-                fetch('https://api.openweathermap.org/data/2.5/weather?lat=36&lon=-115.17&appid=2528be2e5c053228dd0fd7a3285d22a3')
-                    .then(async response => {
-                        let json = await response.json();
-                        // The temperature is in KELVIN. We have to go to deg f.
-                        let temp = (Math.round((json.main.temp - 273.15)*9/5+32));
-                        let desc = json.weather[0].description;
-                        document.getElementById('weather').innerHTML =
-                            `${temp} °F - ${desc}`;
-                    });
-                
-                // load json
-            }
-
-            function setDate() {
-                let dateR = new Date();
-                // Time first
-                let ampm;
-                let modHours;
-                if(dateR.getHours() > 12) {
-                    modHours = dateR.getHours() - 12;
-                    ampm = 'pm';
-                } else {
-                    if(dateR.getHours() == 0)
-                        modHours = 12;
-                    else
-                        modHours = dateR.getHours();
-                    ampm = 'am';
-                }
-                let modMins = (dateR.getMinutes() < 10) ? '0' + dateR.getMinutes() : dateR.getMinutes()
-                let time = `${modHours}:${modMins} ${ampm}`;
-                // console.log(time);
-
-                let modMon = dateR.getMonth();
-                let monArr = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-                let monActual = monArr[modMon];
-                let modDay = dateR.getDate();
-                let modYR = dateR.getFullYear();
-
-                let date = `${monActual} ${modDay},${modYR}`;
-
-                document.getElementById('dateTime').innerHTML = 
-                    `It's ${time}, ${date}.`;
-            }
-
-            function searchWithInput()
-            {
-                let input = document.getElementById('searchText').value;
-
-                window.open(`https://www.google.com/search?q=${input}`)
-
-                document.getElementById('searchText').value = '';
-                return false;
-            }
-            function newTodo() {
-                let item = prompt('Item name:');
-
-                if(!item)
-                    return;
-                else {
-                    let node = document.getElementsByClassName('sp-todo');
-                    // console.log(node);
-                    let newtodo = document.createElement('DIV');
-                    newtodo.innerHTML = item;
-                    newtodo.classList.add('cross')
-                    newtodo.onclick = removeTodo;
-                    node[0].appendChild(newtodo);
-                }
-            }
-            function removeTodo() {
-                this.remove();
-            }
-
-        </script>
+        <script src="./index.js"></script>
     </head>
-
     <body>
-        <div class="sp-container">
+        <div class="main-container">
+            <div class="main-sidebar">
+                <div class="sidebar-top">
+                    <div id="sidebar-search" class="material-symbols-outlined"> 
+                        apps
+                    </div>
+                </div>
+                <div class="sidebar-bottom">
+                    <div id="status-main" class="material-symbols-outlined">
+                        bolt
+                    </div>
+                    <div id="time-main">
+                        <p id="time-hours">06</p>
+                        <p id="time-minutes">22</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="launcher-container">
+                    <div class="launcher-hdr-image">
+                        <div id="weather-main">
+                            <p id="weather-symbol" class="material-symbols-outlined">cloud</p>
+                            <p id="weather-temp">2</p>
+                        </div>
+                        <div id="search-main">
+                            <p id="weather-symbol" class="material-symbols-outlined">search</p>
+                            <form id="search-input">
+                                <input id="search-text" type="text" placeholder="Search"/>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="launcher-link-container" id="link-container">
+                    </div>
+                </div>
+                <!--
+                We can add calendar functionality later
+                
+                
+                <div class="todo-container">
+                    <div class="todo-main" id="todo-main">
 
-            <div class="sp-sidebar-img">
-                <img src="https://cdn.discordapp.com/attachments/605246458719109120/800557256659042314/ok.jpg" class="psource">
+                    </div>
+                    <div class="todo-hdr-image">
+                        <div class="todo-title">
+                            Todo List
+                        </div>
+                        <div class="todo-title">
+                            <p id="weather-symbol" class="material-symbols-outlined">add_task</p>
+                            <form id="todo-input">
+                                <input id="todo-text" type="text" placeholder="Todo"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                -->
             </div>
-            
-            <div class="sp-main">
-                <div class="sp-search"> 
-                    <div id="dateTime">Welcome back. It's money oclock</div>
-                    <div id="weather">Weather</div>
-                    <form onsubmit="return searchWithInput()">
-                        root:~# <input type="text" id="searchText" placeholder="where to?">
-                    </form>
-                </div>
-            </br>
-                <div class="sp-links"> 
-                    <u>school:</u>
-                    <a href='http://webmail.case.edu' target="_blank">mail</a>
-                    <a href='https://canvas.case.edu' target="_blank">canvas</a>
-                    <a href='https://sis.case.edu' target="_blank">sis</a>
-                    <a href='https://libgen.is' target="_blank">libgen</a>
-                </br>
-                    <u>physics:</u>
-                    <a href='https://cloudflare-ipfs.com/ipfs/bafykbzacecyamum5jtn73ntx4yuin3vjrbskig6q6nls2l4a6skdwkip7qemg?filename=%28Oxford%20master%20series%20in%20physics%2012%29%20Michele%20Maggiore%20-%20A%20modern%20introduction%20to%20quantum%20field%20theory-Oxford%20University%20Press%20%282005%29.pdf' target="_blank">qft1</a>
-                    <a href='http://www.softouch.on.ca/kb/data/Modern%20Approach%20to%20Quantum%20Mechanics%20(A)%202E.pdf' target="_blank">qm</a>
-                </div>
-            </br>
-                <div class="sp-todo">
-                    <div style="float: left;" onclick="newTodo()">(+)</div><div style="float: left;">&nbsp;</div><u>todo:</u> 
-                </div>
-            </div>
-            
-          </div>
+        </div>
     </body>
 </html>

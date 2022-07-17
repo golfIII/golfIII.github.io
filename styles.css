@@ -1,0 +1,206 @@
+/*
+    Please refactor everything in this file once you're not sick
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color: #2E3440;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+}
+
+input {
+    background-color: #8AAC8B;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+}
+
+input:focus {
+    border: none;
+    outline: 0;
+}
+
+div.main-container {
+    position: absolute;
+    width: 95vw;
+    height: 95vh;
+    overflow: hidden;
+
+    display: flex;
+}
+
+div.main-sidebar {
+    flex-grow: 1;
+    width: 7%;
+    height: 100%;
+    background-color:#050A0F;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+div.main-sidebar > div {
+    margin: 1em 1em 1em 1em;
+}
+
+div.main-sidebar > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.main-content {
+    flex-grow: 1;
+    width: 93%;
+    height: 100%;
+    background-image: url("https://vsthemes.org/uploads/posts/2020-04/1586853722_kurt-cotoaga-cqblg3lzepk-unsplash-modded.jpg");
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+div#sidebar-search {
+    width: 2vw;
+    height: 2vw;
+    padding: 1em;
+    background-color: #7797B7;
+    color: #2C3035;
+    font-size: 1em;
+}
+
+div#status-main {
+    width: 2vw;
+    height: 2vw;
+    padding: 1em;
+    background-color: #8AAC8B;
+    color: #2C3035;
+    font-size: 1em;
+    border-top-right-radius: 1em;
+}
+
+div#time-main {
+    width: 2vw;
+    height: 4vh;
+    padding: 1em;
+    background-color: #2C3035;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+    Code related to the launcher in the middle
+*/
+
+div.launcher-container {
+    width: 70%;
+    height: 70%;
+
+    background-color: #050A0F;
+    border-width: 0.5em;
+    border-color: #7797B7;
+    border-style: solid;
+    border-radius: 0.25em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+div.launcher-hdr-image {
+    flex-grow: 0.4;
+    width: 100%;
+    /*background-image: url("https://i.imgur.com/QMotVCF.jpeg");*/
+    background-image: url("https://images.pling.com/img/00/00/32/24/44/1702660/wave-dark-nord1.png");
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.launcher-hdr-image > * {
+    margin: 2em;
+}
+
+div#weather-main {
+    background-color: #8AAC8B;
+    color: #050A0F;
+
+    width: fit-content;
+    padding: 1em;
+    border-radius: 1em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+div#search-main {
+    background-color: #8AAC8B;
+    color: #050A0F;
+
+    width: fit-content;
+    padding: 1em;
+    border-radius: 1em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+div.launcher-link-container {
+    flex-grow: 0.6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 1em;
+}
+
+div.launcher-link {
+    flex-grow: 0.1;
+
+    width: 25%;
+    height: 10%;
+
+    border-radius: 1em;
+    padding: 1em;
+
+    background-color: #262C3A;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.launcher-link:hover {
+    cursor: pointer;
+    background-color: #7797B7;
+}
