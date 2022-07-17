@@ -104,6 +104,9 @@ function initTime()
 
 
 window.onload = function() {
+
+    document.getElementById('search-text')?.focus()
+
     initTime()
 
     initLinks()
